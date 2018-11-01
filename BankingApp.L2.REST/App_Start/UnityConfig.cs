@@ -45,17 +45,19 @@ namespace BankingApp.L2.REST
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-            var myMockRepository = new Mock<IComptesRepository>();
-            myMockRepository.Setup(o => o.FindAll()).Returns(
-                new List<Compte>()
-                {  new Compte {Numero="F1000",Proprietaire="Fake_1", Solde=1000M},
-                   new Compte {Numero="F2000",Proprietaire="Fake_2", Solde=5000M},
-                   new Compte {Numero="F3000",Proprietaire="Fake_3", Solde=8000M}
-                });
-            container.RegisterInstance<IComptesRepository>(myMockRepository.Object);
+            //var myMockRepository = new Mock<IComptesRepository>();
+            //myMockRepository.Setup(o => o.FindAll()).Returns(
+            //    new List<Compte>()
+            //    {  new Compte {Numero="F1000",Proprietaire="Fake_1", Solde=1000M},
+            //       new Compte {Numero="F2000",Proprietaire="Fake_2", Solde=5000M},
+            //       new Compte {Numero="F3000",Proprietaire="Fake_3", Solde=8000M}
+            //    });
+            //container.RegisterInstance<IComptesRepository>(myMockRepository.Object);
+
+
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-          //  container.RegisterType<IComptesRepository, ComptesRepositoryImpl_EF>();
+            container.RegisterType<IComptesRepository, ComptesRepositoryImpl_EF>();
             container.RegisterType<IComptesBusiness, CompteBusinessImpl>();
         }
     }
