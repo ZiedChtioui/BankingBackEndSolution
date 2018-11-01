@@ -12,7 +12,12 @@ namespace BankingApp.L2.REST.Controllers
 {
     public class ComptesController : ApiController
     {
-        private IComptesBusiness business = new CompteBusinessImpl();
+        private IComptesBusiness business;// = new CompteBusinessImpl();
+
+        public ComptesController(IComptesBusiness business)
+        {
+            this.business = business;
+        }
         // GET api/comptes
         public IEnumerable<Compte> Get()
         {
